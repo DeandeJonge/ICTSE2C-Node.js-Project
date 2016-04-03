@@ -25,7 +25,11 @@ $(function(){
 	var cursors = {};
 
 	var socket = io.connect(url);
-	
+
+	socket.on("connect", function () {
+		console.log("Connected!");
+	});
+
 	socket.on('moving', function (data) {
 		
 		if(! (data.id in clients)){
