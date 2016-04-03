@@ -6,7 +6,6 @@ $(function(){
 		return false;
 	}
 
-	// The URL of your web server (the port is set in server.js)
 	var url = 'http://localhost:8080';
 
 	var doc = $(document),
@@ -15,10 +14,9 @@ $(function(){
 		ctx = canvas[0].getContext('2d'),
 		instructions = $('#instructions');
 	
-	// Generate an unique ID
+	//Generate ID for user
 	var id = Math.round($.now()*Math.random());
-	
-	// A flag for drawing activity
+
 	var drawing = false;
 
 	var clients = {};
@@ -26,12 +24,12 @@ $(function(){
 
 	var socket = io.connect(url);
 
-
+	socket.on("connect", function () {
+		console.log("Connected!");
+	});
 
 	socket.on('moving', function (data) {
-		socket.on("connect", function () {
-			console.log("Connected!");
-		});
+		
 		if(! (data.id in clients)){
 			// a new user has come online. create a cursor for them
 			cursors[data.id] = $('<div class="cursor">').appendTo('#cursors');
