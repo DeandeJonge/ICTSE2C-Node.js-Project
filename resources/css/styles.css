@@ -64,19 +64,6 @@ h1{
 	padding-bottom: 8px;
 }
 
-h2{
-	font-size: 13px;
-	font-weight: normal;
-	padding-bottom: 8px;
-}
-
-h3{
-	font-size: 12px;
-	font-weight: normal;
-	font-style: italic;
-	color: #999;
-}
-
 #cursors{
 	position:relative;
 }

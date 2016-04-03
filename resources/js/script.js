@@ -19,6 +19,7 @@ $(function(){
 
 	var drawing = false;
 
+	//Clients and cursors
 	var clients = {};
 	var cursors = {};
 
@@ -31,7 +32,7 @@ $(function(){
 	socket.on('moving', function (data) {
 
 		if(! (data.id in clients)){
-			// a new user has come online. create a cursor for them
+			//create cursor for user
 			cursors[data.id] = $('<div class="cursor">').appendTo('#cursors');
 		}
 		
@@ -40,17 +41,12 @@ $(function(){
 			'left' : data.x,
 			'top' : data.y
 		});
-		
-		// Is the user drawing?
+        //checks if user is drawing
 		if(data.drawing && clients[data.id]){
-			
-			// Draw a line on the canvas. clients[data.id] holds
-			// the previous position of this user's mouse pointer
-			
 			drawLine(clients[data.id].x, clients[data.id].y, data.x, data.y);
 		}
 		
-		// Saving the current client state
+		// Save client state
 		clients[data.id] = data;
 		clients[data.id].updated = $.now();
 	});
@@ -84,9 +80,6 @@ $(function(){
 			lastEmit = $.now();
 		}
 		
-		// Draw a line for the current user's movement, as it is
-		// not received in the socket.on('moving') event above
-		
 		if(drawing){
 			
 			drawLine(prev.x, prev.y, e.pageX, e.pageY);
@@ -96,14 +89,11 @@ $(function(){
 		}
 	});
 
-	// Remove inactive clients after 10 seconds of inactivity
+	// Remove client after inactivity of 10 seconds
 	setInterval(function(){
 		
 		for(ident in clients){
 			if($.now() - clients[ident].updated > 10000){
-				
-				// Last update was more than 10 seconds ago. 
-				// This user has probably closed the page
 				
 				cursors[ident].remove();
 				delete clients[ident];
