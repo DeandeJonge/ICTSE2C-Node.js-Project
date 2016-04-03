@@ -7,10 +7,11 @@ $(window).load(function () {
         pageRedirect('index');
     })
 
+
 })
 //function to change the page. This will redirect you to the pregame screen.
 function pageRedirect($page) {
     if ($page === 'index') {
-        window.location.replace('./PreGame.html');
+        window.location.replace('./preGame.html');
     }
 }

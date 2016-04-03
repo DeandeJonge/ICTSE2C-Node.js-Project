@@ -77,11 +77,6 @@ h3{
 	color: #999;
 }
 
-canvas{
-	height: 100%;
-	width: 100%;
-}
-
 #cursors{
 	position:relative;
 }
