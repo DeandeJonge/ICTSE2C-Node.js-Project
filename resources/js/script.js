@@ -13,7 +13,7 @@ $(function(){
 		canvas = $('#paper'),
 		ctx = canvas[0].getContext('2d'),
 		instructions = $('#instructions');
-	
+
 	//Generate ID for user
 	var id = Math.round($.now()*Math.random());
 
@@ -29,7 +29,7 @@ $(function(){
 	});
 
 	socket.on('moving', function (data) {
-		
+
 		if(! (data.id in clients)){
 			// a new user has come online. create a cursor for them
 			cursors[data.id] = $('<div class="cursor">').appendTo('#cursors');
