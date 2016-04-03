@@ -44,6 +44,16 @@ p {
     padding: 10px;
 }
 
+#playerInfo {
+    text-align: center;
+    align-content: center;
+}
+
+#playerName {
+    placeholder: Enter Player name;
+}
+
+
 #leftcolumnwrap {
     width: 15%;
     height: 100%;
