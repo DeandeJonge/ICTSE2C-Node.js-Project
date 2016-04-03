@@ -6,7 +6,6 @@ $(function(){
 		return false;
 	}
 
-	// The URL of your web server (the port is set in app.js)
 	var url = 'http://localhost:8080';
 
 	var doc = $(document),
@@ -15,10 +14,9 @@ $(function(){
 		ctx = canvas[0].getContext('2d'),
 		instructions = $('#instructions');
 	
-	// Generate an unique ID
+	//Generate ID for user
 	var id = Math.round($.now()*Math.random());
-	
-	// A flag for drawing activity
+
 	var drawing = false;
 
 	var clients = {};
