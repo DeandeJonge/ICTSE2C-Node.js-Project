@@ -44,6 +44,16 @@ p {
     padding: 10px;
 }
 
+#playerInfo {
+    text-align: center;
+    align-content: center;
+}
+
+#playerName {
+    placeholder: Enter Player name;
+}
+
+
 #leftcolumnwrap {
     width: 15%;
     height: 100%;
@@ -52,10 +62,16 @@ p {
 
 }
 
-#leftcolumn {
+.leftcolumn {
+    text-align: center;
+    align-content: center;
     background: #33CCFF;
     border-radius: 10px;
     border: 1px solid #1fb8eb;
     margin: 5px;
+}
+
+.leftcolumn:hover {
+    background: #3cb0fd;
 }
 
